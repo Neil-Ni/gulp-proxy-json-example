@@ -8,6 +8,8 @@
 
 var gutil = require('gulp-util');
 
+exports.port = 3000;
+
 /**
  *  The main paths of your project handle these with care
  */

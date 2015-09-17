@@ -10,7 +10,13 @@ function isOnlyChange(event) {
   return event.type === 'changed';
 }
 
-gulp.task('watch', ['inject'], function () {
+gulp.task('copy', function() {
+  return gulp.src(conf.paths.src + '/fixtures/*', {
+    base: conf.paths.src
+  }).pipe(gulp.dest(conf.paths.tmp + '/serve'));
+});
+
+gulp.task('watch', ['inject', 'copy'], function () {
 
   gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
 
